@@ -19,7 +19,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.letsgo.setOnClickListener {
             if(binding.writens.text.isNotEmpty()){
-                getMealInfo("${binding.writens.text}")
+                try {
+                    getMealInfo("${binding.writens.text}")
+                    binding.whatday.text = "${binding.writens.text.toString().substring(0 until 4)}년${binding.writens.text.toString().substring(4 until 6)}월${binding.writens.text.toString().substring(6 until 8)}일 의 급식은?"
+                }
+                catch(e : Exception){
+                    binding.whatday.text = "입력 형식이 틀렸습니다."
+                }
             }
         }
 
@@ -41,8 +47,26 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val mealResponse = response.body()
                     mealResponse?.let {
+                        val menuContents = mealResponse.toString()
                         // Handle the response here
-                        binding.good.text = mealResponse.toString()
+                        try{
+                            binding.first.text = menuContents.split(",")[1]
+                        }
+                        catch (e:Exception){
+                            binding.first.text = "오늘 아침이 없습니다."
+                        }
+                        try{
+                            binding.sec.text = menuContents.split(",")[2]
+                        }
+                        catch (e:Exception){
+                            binding.sec.text = "오늘 점심이 없습니다."
+                        }
+                        try{
+                            binding.third.text = menuContents.split(",")[3]
+                        }
+                        catch (e:Exception){
+                            binding.third.text = "오늘 저녁이 없습니다."
+                        }
 
                     }
                 } else {
