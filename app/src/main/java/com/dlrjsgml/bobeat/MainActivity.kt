@@ -28,21 +28,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initDo()
+        changeDay(0)
         binding.yesterday.setOnClickListener {
             changeDay(-1)
         }
         binding.tommorow.setOnClickListener {
             changeDay(1)
         }
-    }
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun initDo(){
-        getMealInfo(mutableDate!!.format(DateTimeFormatter.ofPattern("yyyyMMdd")))
-        val datetoStringMan = mutableDate!!.format(DateTimeFormatter.ofPattern("yyyyMMdd"))
-        val monthman =datetoStringMan.substring(4, 6).toInt().toString()
-        val dayman = datetoStringMan.substring(6, 8).toInt().toString()
-        binding.whatday.text = "${datetoStringMan.substring(0,4)}년 ${monthman}월 ${dayman}일의 급식은?"
     }
     @RequiresApi(Build.VERSION_CODES.O)
     private fun changeDay(good : Long){
