@@ -5,42 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <TextView
         android:id="@+id/whatday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="급식은?"
         android:layout_margin="20dp"
-        android:textStyle="bold"
+        android:text="급식은?"
         android:textColor="@color/black"
         android:textSize="25dp"
-        />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/onehello"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/whatday"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="20dp"
         android:orientation="vertical"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/whatday">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="아침"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            />
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="Hello World!"
             app:layout_constraintEnd_toEndOf="parent"
-            android:padding="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,25 +51,25 @@
         android:id="@+id/twohello"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/onehello"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="20dp"
         android:orientation="vertical"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/onehello">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="점심"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            />
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/sec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
             android:padding="10dp"
+            android:text="Hello World!"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -76,29 +77,31 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/threehello"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/twohello"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="20dp"
         android:orientation="vertical"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/twohello">
+
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="저녁"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            />
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/third"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
             android:padding="10dp"
+            android:text="Hello World!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -106,22 +109,29 @@
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/writens"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="날짜적으세요 예시 : 20240615"
-        app:layout_constraintTop_toBottomOf="@id/threehello"
-        android:layout_marginTop="20dp"
-        />
-    <Button
-        android:id="@+id/letsgo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="확인하기"
-        app:layout_constraintTop_toBottomOf="@id/writens"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/yesterday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="어제 급식"
+            android:layout_weight="1"
+            />
+        <Button
+            android:id="@+id/tommorow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내일 급식"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
